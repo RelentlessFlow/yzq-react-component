@@ -1,5 +1,5 @@
 import { expect, describe, it, vitest } from "vitest";
-import {fireEvent, render} from "@testing-library/react";
+import {fireEvent, render, screen} from "@testing-library/react";
 import '@testing-library/jest-dom';
 import Button from "./button.tsx";
 import type {ButtonProps} from "./type.ts";
@@ -26,8 +26,13 @@ const disabledProps: ButtonProps = {
 
 describe('test Button component', () => {
 	it('should render the correct default button', () => {
-		const wrapper = render(<Button { ...defaultProps }>Nice</Button>)
-		const element = wrapper.getByText('Nice') as HTMLButtonElement
+		// const wrapper = render(<Button { ...defaultProps }>Nice</Button>)
+		// const element = wrapper.getByText('Nice') as HTMLButtonElement
+
+		// use screen object
+		render(<Button { ...defaultProps }>Nice</Button>)
+		const element = screen.getByText('Nice') as HTMLButtonElement
+
 		expect(element).toBeInTheDocument()
 		expect(element.tagName).toEqual('BUTTON')
 		expect(element).toHaveClass('yzq-btn yzq-btn-default')
@@ -40,7 +45,6 @@ describe('test Button component', () => {
 		const element = wrapper.getByText('Nice')
 		expect(element).toBeInTheDocument()
 		expect(element.tagName).toEqual('BUTTON')
-		console.log(element.className)
 		expect(element).toHaveClass('yzq-btn-primary yzq-btn-lg yzq')
 	})
 	it('should render a link when yzq-btnType equals link and href is provided', () => {
