@@ -1,6 +1,5 @@
 import { expect, describe, it, vitest } from "vitest";
 import {fireEvent, render, screen} from "@testing-library/react";
-import '@testing-library/jest-dom';
 import Button from "./button.tsx";
 import type {ButtonProps} from "./type.ts";
 
