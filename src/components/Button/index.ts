@@ -1,5 +1,4 @@
-import { ButtonSize, ButtonType } from "./type.ts";
-import button from "./button.tsx";
+import button, { type ButtonSize, type ButtonType } from "./button.tsx";
 
 export type {
 	ButtonType,

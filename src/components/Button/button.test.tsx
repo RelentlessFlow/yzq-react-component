@@ -1,7 +1,6 @@
 import { expect, describe, it, vitest } from "vitest";
 import {fireEvent, render, screen} from "@testing-library/react";
-import Button from "./button.tsx";
-import type {ButtonProps} from "./type.ts";
+import Button, { ButtonProps } from "./button.tsx";
 
 const defaultProps = {
 	onClick: vitest.fn()

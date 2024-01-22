@@ -1,6 +1,21 @@
 import React from 'react'
 import classNames from "classnames";
-import type {ButtonProps} from "./type.ts";
+
+type ButtonSize = 'lg' | 'sm'
+type ButtonType = 'default' | 'primary' | 'danger' | 'link'
+
+interface BaseButtonProps {
+	className?: string;
+	disabled?: boolean;
+	size?: ButtonSize;
+	buttonType?: ButtonType;
+	children?: React.ReactNode;
+	href?: string
+}
+
+type NativeButtonProps = BaseButtonProps & React.ButtonHTMLAttributes<HTMLElement>
+type AnchorButtonProps = BaseButtonProps & React.AnchorHTMLAttributes<HTMLElement>
+type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
 
 const Button: React.FC<ButtonProps> = (props) => {
 	const {
@@ -39,3 +54,9 @@ const Button: React.FC<ButtonProps> = (props) => {
 }
 
 export default Button
+
+export type {
+	ButtonSize,
+	ButtonType,
+	ButtonProps
+}
