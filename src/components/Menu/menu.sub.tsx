@@ -1,6 +1,7 @@
 import {MenuContext, MenuId} from "./menu.tsx";
 import React, {useContext, useRef, useState} from "react";
 import classNames from "classnames";
+import {motion} from 'framer-motion'
 import Icon from "@/components/Icon";
 
 interface SubMenuProps {
@@ -21,8 +22,8 @@ const MenuSub: React.FC<SubMenuProps> = (
 	const [menuOpen, setMenuOpen] = useState(false);
 	const timer = useRef<ReturnType<typeof setTimeout>>()
 	const context = useContext(MenuContext)
-	const handleMouse  = (e: React.MouseEvent, toggle: boolean) => {
-		if(timer.current) clearTimeout(timer.current)
+	const handleMouse = (e: React.MouseEvent, toggle: boolean) => {
+		if (timer.current) clearTimeout(timer.current)
 		e.preventDefault();
 		timer.current = setTimeout(() => {
 			setMenuOpen(toggle);
@@ -31,7 +32,7 @@ const MenuSub: React.FC<SubMenuProps> = (
 	const handleClick = (e: React.MouseEvent) => {
 		e.preventDefault();
 		setMenuOpen(!menuOpen);
-		if(context.onSelect) context.onSelect(id);
+		if (context.onSelect) context.onSelect(id);
 	}
 	const hoverEvents: Record<string, React.MouseEventHandler<HTMLDivElement>> = {
 		onMouseEnter: (e) => handleMouse(e, true),
@@ -47,18 +48,21 @@ const MenuSub: React.FC<SubMenuProps> = (
 		'submenu-opened': menuOpen
 	})
 
-	return <li key={id} className={classes} { ...hoverEvents }>
-		<div className={'yzq-submenu-title'} { ...clickEvents }>
-			{ title }
-			<Icon
-				name={"under"}
+	return <motion.li key={id} className={classes} whileHover='animate' {...hoverEvents}>
+		<div className={'yzq-submenu-title'} {...clickEvents}>
+			{title}
+			<motion.div
 				className={'yzq-submenu-title-arrow'}
-			/>
+				variants={{ initial: { rotate: 0 }, animate: { rotate: 180 } }}
+				transition={{ duration: 0.2 }}
+			>
+				<Icon name={"under"} className={'yzq-submenu-title-icon'} />
+			</motion.div>
 		</div>
-		<ul className={submenuClasses}>
-			{ children }
-		</ul>
-	</li>
+		<motion.ul className={submenuClasses}>
+			{children}
+		</motion.ul>
+	</motion.li>
 }
 
 export type {

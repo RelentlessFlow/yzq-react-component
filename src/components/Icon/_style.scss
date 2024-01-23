@@ -1,10 +1,8 @@
 @use "sass:map";
 @import "../../styles/variables";
 
-.yzq-icon {}
-
 @each $key, $val in $theme-colors {
-  .yzq-icon-#{$key} {
+  .yzq-icon-svg-#{$key} {
     fill: $val;
   }
 }

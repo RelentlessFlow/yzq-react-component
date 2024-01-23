@@ -31,16 +31,18 @@ const Icon: React.FC<IconProps> = (
 		[`yzq-icon-${type}`]: type
 	})
 	return (
+		<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
 		<svg
 			className={classes}
 			aria-hidden="true"
 			fill={color}
-			width={20}
-			height={20}
+			width={10}
+			height={10}
 			{ ...restProps }
 		>
 			<use href={symbolId} />
 		</svg>
+		</div>
 	)
 }
 
