@@ -1,10 +1,10 @@
 // config
 @import "variables";
 
-//layout
+// layout
 @import "reboot";
 
-//mixin
+// mixin
 @import "mixin";
 
 // button
@@ -12,3 +12,7 @@
 
 // menu
 @import "../components/Menu/style";
+
+// icon
+@import "../components/Icon/style";
+

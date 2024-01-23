@@ -9,7 +9,7 @@ interface SubMenuProps {
 	children: React.ReactNode
 }
 
-const SubMenu: React.FC<SubMenuProps> = (
+const MenuSub: React.FC<SubMenuProps> = (
 	{
 		id,
 		title,
@@ -60,4 +60,4 @@ export type {
 	SubMenuProps
 }
 
-export default SubMenu;
+export default MenuSub;

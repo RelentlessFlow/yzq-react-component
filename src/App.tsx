@@ -1,11 +1,16 @@
 import React from "react";
 import Button from "@/components/Button";
 import Menu from "@/components/Menu";
+import Icon from "@/components/Icon";
 
 const App: React.FC = () => {
 	return (
 		<>
 			<div className={'App'}>
+				<Icon
+					name={"add"}
+					type={'primary'}
+				/>
 				<Menu defaultIndex={0} onSelect={(index) => console.log(index)} style={{margin: 20}} mode={'horizontal'}>
 					<Menu.Item id={'0'}>
 						menu0
