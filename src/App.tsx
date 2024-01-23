@@ -1,7 +1,6 @@
 import React from "react";
 import Button from "@/components/Button";
 import Menu from "@/components/Menu";
-import Icon from "@/components/Icon";
 
 const App: React.FC = () => {
 	return (
