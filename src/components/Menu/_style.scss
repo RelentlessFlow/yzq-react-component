@@ -21,6 +21,9 @@
     }
     &.is-active, &:hover {
       color: $menu-item-active-color;
+      .yzq-submenu-title-arrow {
+        fill: $menu-item-active-color;
+      }
     }
   }
 
@@ -29,6 +32,11 @@
     .yzq-submenu-title {
       display: flex;
       align-items: center;
+      &-arrow {
+        height: 12px;
+        width: 12px;
+        margin-left: 4px;
+      }
     }
   }
 
@@ -65,7 +73,7 @@
     position: absolute;
     background: $white;
     z-index: 100;
-    top: calc(100% - 2px);
+    top: calc(100% + 4px);
     left: 0;
     border: $menu-border-width solid $menu-border-color;
     box-shadow: $submenu-box-shadow;

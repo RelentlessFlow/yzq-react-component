@@ -1,6 +1,7 @@
 import {MenuContext, MenuId} from "./menu.tsx";
 import React, {useContext, useRef, useState} from "react";
 import classNames from "classnames";
+import Icon from "@/components/Icon";
 
 interface SubMenuProps {
 	id: MenuId;
@@ -49,6 +50,10 @@ const MenuSub: React.FC<SubMenuProps> = (
 	return <li key={id} className={classes} { ...hoverEvents }>
 		<div className={'yzq-submenu-title'} { ...clickEvents }>
 			{ title }
+			<Icon
+				name={"under"}
+				className={'yzq-submenu-title-arrow'}
+			/>
 		</div>
 		<ul className={submenuClasses}>
 			{ children }
