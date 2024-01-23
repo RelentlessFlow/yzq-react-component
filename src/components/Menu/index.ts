@@ -1,15 +1,15 @@
-import InternalForm, { type MenuProps } from './menu.tsx'
+import InternalMenu, { type MenuProps } from './menu.tsx'
 import MenuItem, { type MenuItemProps } from "./menuItem.tsx";
 import SubMenu, { type SubMenuProps } from "./subMenu.tsx";
 
-type InternalFormType = typeof InternalForm;
+type InternalMenuType = typeof InternalMenu;
 
-type CompoundedComponent = InternalFormType & {
+type CompoundedComponent = InternalMenuType & {
 	Item: typeof MenuItem;
 	SubItem: typeof SubMenu
 }
 
-const Menu = InternalForm as CompoundedComponent
+const Menu = InternalMenu as CompoundedComponent
 
 Menu.Item = MenuItem
 Menu.SubItem = SubMenu
