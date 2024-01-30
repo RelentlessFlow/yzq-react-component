@@ -1,3 +1,4 @@
+import React from "react";
 import { expect, describe, it, vitest } from "vitest";
 import {fireEvent, render, screen} from "@testing-library/react";
 import Button, { ButtonProps } from "./button.tsx";
